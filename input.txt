@@ -1,0 +1,3 @@
+\ Настройки приложения, Список дел на сегодня, Настройки сети
+max_connections -> max_conn;
+[app_name => "MyApp", version => 1, settings => [max_users => 100, max_connections => @{max_conn}, allowed_ips => (list "192.168.1.1" "192.168.1.2" "10.0.0.1")]      [host => "localhost", port => 5432, credentials => [user => "admin", password => "secret"]]]

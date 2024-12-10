@@ -1,0 +1,13 @@
+- app_name: MyApp
+  settings:
+    allowed_ips:
+    - 192.168.1.1
+    - 192.168.1.2
+    - 10.0.0.1
+    credentials:
+      password: secret
+      user: admin
+    max_connections: max_connections
+    max_users: 100
+    port: 5432
+  version: 1

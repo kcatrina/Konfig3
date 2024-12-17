@@ -104,3 +104,73 @@ python tests.py
 - tests.py — модуль с тестами для проверки функциональности.
 
 - README.md — документация проекта.
+  
+### Тест
+
+**Пример 1**
+
+input.txt
+```
+max_connections -> max_conn;
+[app_name => "MyApp", version => 1, settings => [max_users => 100, max_connections => @{max_conn}, allowed_ips => (list "192.168.1.1" "192.168.1.2" "10.0.0.1")]      [host => "localhost", port => 5432, credentials => [user => "admin", password => "secret"]]]
+```
+output.yaml
+```
+- app_name: MyApp
+  settings:
+    allowed_ips:
+    - 192.168.1.1
+    - 192.168.1.2
+    - 10.0.0.1
+    credentials:
+      password: secret
+      user: admin
+    max_connections: max_connections
+    max_users: 100
+    port: 5432
+  version: 1
+```
+**Пример 2**
+input.txt
+```
+max_connections -> max_conn;
+[app_name => "SecondApp", version => 2, settings => [max_users => 1000, max_connections => @{max_conn}, allowed_ips => (list "192.168.1.1" "192.168.1.2" "10.0.0.1")]      [host => "localhost", port => 5172, credentials => [user => "admin", password => "secret"]]]
+```
+ouput.yaml
+```
+- app_name: SecondApp
+  settings:
+    allowed_ips:
+    - 192.168.1.1
+    - 192.168.1.2
+    - 10.0.0.1
+    credentials:
+      password: secret
+      user: admin
+    max_connections: max_connections
+    max_users: 1000
+    port: 5172
+  version: 2
+```
+**Пример 3**
+input.txt
+```
+max_connections -> max_conn;
+[app_name => "App", version => 16, settings => [max_users => 800, max_connections => @{max_conn}, allowed_ips => (list "192.168.1.1" "192.168.1.2" "10.0.0.1")]      [host => "localhost", port => 1456, credentials => [user => "admin", password => "secret"]]]
+```
+ouput.txt
+```
+- app_name: App
+  settings:
+    allowed_ips:
+    - 192.168.1.1
+    - 192.168.1.2
+    - 10.0.0.1
+    credentials:
+      password: secret
+      user: admin
+    max_connections: max_connections
+    max_users: 800
+    port: 1456
+  version: 16
+```
